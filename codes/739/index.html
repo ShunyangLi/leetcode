@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>268. Missing Number · GitBook</title>
+        <title>739. Daily Temperatures · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -89,10 +89,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../287/" />
+    <link rel="next" href="../496/" />
     
     
-    <link rel="prev" href="../238/" />
+    <link rel="prev" href="../645/" />
     
 
     </head>
@@ -149,9 +149,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="../268/">
             
-                <a href="./">
+                <a href="../268/">
             
                     
                     268. Missing Number
@@ -188,9 +188,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="../739/">
+        <li class="chapter active" data-level="1.6" data-path="./">
             
-                <a href="../739/">
+                <a href="./">
             
                     
                     739. Daily Temperatures
@@ -244,7 +244,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >268. Missing Number</a>
+        <a href="../.." >739. Daily Temperatures</a>
     </h1>
 </div>
 
@@ -259,47 +259,56 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="268-missing-number">268. Missing Number</h1>
-<p>Given an array <code>nums</code> containing <code>n</code> distinct numbers in the range <code>[0, n]</code>, return <em>the only number in the range that is missing from the array.</em></p>
+                                <h1 id="739-daily-temperatures"><strong>739. Daily Temperatures</strong></h1>
+<p>Given an array of integers <code>temperatures</code> represents the daily temperatures, return <em>an array</em> <code>answer</code> <em>such that</em> <code>answer[i]</code> <em>is the number of days you have to wait after the</em> <code>ith</code> <em>day to get a warmer temperature</em>. If there is no future day for which this is possible, keep <code>answer[i] == 0</code> instead.</p>
 <p><strong>Example 1:</strong></p>
-<pre><code>Input: nums = [3,0,1]
-Output: 2
-Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
+<pre><code>Input: temperatures = [73,74,75,71,69,72,76,73]
+Output: [1,1,4,2,1,1,0,0]
 </code></pre><p><strong>Example 2:</strong></p>
-<pre><code>Input: nums = [0,1]
-Output: 2
-Explanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.
+<pre><code>Input: temperatures = [30,40,50,60]
+Output: [1,1,1,0]
 </code></pre><p><strong>Example 3:</strong></p>
-<pre><code>Input: nums = [9,6,4,2,3,5,7,0,1]
-Output: 8
-Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
+<pre><code>Input: temperatures = [30,60,90]
+Output: [1,1,0]
 </code></pre><p><strong>Constraints:</strong></p>
 <ul>
-<li><code>n == nums.length</code></li>
-<li><code>1 &lt;= n &lt;= 104</code></li>
-<li><code>0 &lt;= nums[i] &lt;= n</code></li>
-<li>All the numbers of <code>nums</code> are <strong>unique</strong>.</li>
+<li><code>1 &lt;= temperatures.length &lt;= 105</code></li>
+<li><code>30 &lt;= temperatures[i] &lt;= 100</code></li>
 </ul>
-<p><strong>Follow up:</strong> Could you implement a solution using only <code>O(1)</code> extra space complexity and <code>O(n)</code> runtime complexity?</p>
 <h2 id="solution">Solution</h2>
-<p>&#x7528;hashmap&#x5C31;&#x80FD;&#x89E3;&#x51B3;&#x3002;&#x4F46;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F; <code>O(n)</code> &#x3002;&#x5982;&#x679C;&#x60F3;&#x8981;&#x5728; <code>O(1)</code> &#x662F;&#x7684;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E2D;&#x5B8C;&#x6210;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6C42;&#x548C;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x89E3;&#x51B3;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x662F;&#x771F;&#x662F;&#x9762;&#x8BD5;&#x9898;&#xFF0C;21&#x5E74;&#x7684;&#x65F6;&#x5019;&#x9762;&#x8BD5;&#x7684;&#x65F6;&#x5019;&#x9047;&#x5230;&#x4E86;&#x3002;&#x53EF;&#x4EE5;&#x91C7;&#x7528; <code>stack</code> &#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x3002;&#x5F53;&#x904D;&#x5386;&#x5F53;&#x524D;&#x6E29;&#x5EA6;&#x7684;&#x65F6;&#x5019;&#x53BB;&#x5224;&#x65AD; <code>stack</code> &#x91CC;&#x9762;&#x7684;&#x5143;&#x7D20;&#x662F;&#x5426;&#x5C0F;&#x4E8E;&#x5F53;&#x524D;&#x6E29;&#x5EA6;&#xFF0C;&#x5982;&#x679C;&#x5C0F;&#x4E8E;&#x7684;&#x8BDD;&#x5219; <code>pop</code> &#xFF0C;&#x6700;&#x540E;&#x7ED3;&#x675F;&#x5FAA;&#x73AF;&#x7684;&#x65F6;&#x5019;&#x628A;&#x5F53;&#x524D;&#x6E29;&#x5EA6;&#x6DFB;&#x52A0;&#x5230; <code>stack</code> &#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x4E2A;&#x6E29;&#x5EA6;&#x90FD;&#x8981;&#x627E;&#x5230;&#x6BD4;&#x5F53;&#x524D;&#x5927;&#x7684;&#x6E29;&#x5EA6;&#x3002;</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">class</span> Solution {
 <span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">missingNumber</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>{
-        <span class="hljs-keyword">int</span> r_sum = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">int</span> a_sum = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; dailyTemperatures(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; temperatures) {
+        <span class="hljs-keyword">auto</span> <span class="hljs-built_in">stack</span> = <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt;();
+        <span class="hljs-keyword">auto</span> res = <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;(temperatures.size(), <span class="hljs-number">0</span>);
 
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.size(); i ++) {
-            r_sum += i;
-            a_sum += nums[i];
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; temperatures.size(); i ++) {
+            <span class="hljs-keyword">int</span> t = temperatures[i];
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">stack</span>.size() == <span class="hljs-number">0</span>) {
+                <span class="hljs-built_in">stack</span>.push_back(pair(t, i));
+                <span class="hljs-keyword">continue</span>;
+            }
+
+            <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">stack</span>.empty()) {
+                pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; val = <span class="hljs-built_in">stack</span>.back();
+
+                <span class="hljs-keyword">if</span> (val.first &gt;= t) <span class="hljs-keyword">break</span>;
+
+                res[val.second] = i - val.second;
+                <span class="hljs-built_in">stack</span>.pop_back();
+            }
+
+            <span class="hljs-built_in">stack</span>.push_back(pair(t, i));
+
         }
-
-        <span class="hljs-keyword">return</span> r_sum + nums.size() - a_sum;
+        <span class="hljs-keyword">return</span> res;
     }
 };
 </code></pre>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">File Modify: 
-2024-11-24 22:00:01
+2024-11-24 22:12:01
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -328,12 +337,12 @@ Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0
 
             
                 
-                <a href="../238/" class="navigation navigation-prev " aria-label="Previous page: 238. Product of Array Except Self">
+                <a href="../645/" class="navigation navigation-prev " aria-label="Previous page: 645. Set Mismatch">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../287/" class="navigation navigation-next " aria-label="Next page: 287. Find the Duplicate Number">
+                <a href="../496/" class="navigation navigation-next " aria-label="Next page: 496. Next Greater Element I">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -344,7 +353,7 @@ Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"268. Missing Number","level":"1.3","depth":1,"next":{"title":"287. Find the Duplicate Number","level":"1.4","depth":1,"path":"codes/287/README.md","ref":"codes/287/README.md","articles":[]},"previous":{"title":"238. Product of Array Except Self","level":"1.2","depth":1,"path":"codes/238/README.md","ref":"codes/238/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table"],"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"codes/268/README.md","mtime":"2024-11-24T11:00:01.713Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-24T11:22:15.428Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"739. Daily Temperatures","level":"1.6","depth":1,"next":{"title":"496. Next Greater Element I","level":"1.7","depth":1,"path":"codes/496/README.md","ref":"codes/496/README.md","articles":[]},"previous":{"title":"645. Set Mismatch","level":"1.5","depth":1,"path":"codes/645/README.md","ref":"codes/645/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table"],"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"codes/739/README.md","mtime":"2024-11-24T11:12:01.699Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-24T11:22:15.428Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
