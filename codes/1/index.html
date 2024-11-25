@@ -1,14 +1,14 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>1. Two Sum · GitBook</title>
+        <title>1. Two Sum · Leetcode FAQ</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
-        
+        <meta name="author" content="Charles Li">
         
         
     
@@ -50,6 +50,10 @@
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
                 
             
                 
@@ -103,7 +107,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -1116,7 +1120,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+            本书使用 GitBook 发布
         </a>
     </li>
 </ul>
@@ -1163,7 +1167,7 @@
 
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
-</code></pre><p>&#x8FD9;&#x4E5F;&#x662F;&#x6211;&#x5904;&#x5973;&#x9762;&#x8BD5;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;&#xFF0C;&#x5F53;&#x65F6;&#x60F3;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x6700;&#x66B4;&#x529B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x4E24;&#x4E2A;&#x5FAA;&#x73AF;&#x5B8C;&#x4E8B;&#xFF0C;&#x4F46;&#x662F;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;$O(n^{2})$&#xFF0C;&#x90A3;&#x662F;&#x76F8;&#x5F53;&#x7684;&#x9AD8;o(&#x2565;&#xFE4F;&#x2565;)o&#x3002;&#x540E;&#x6765;&#x60F3;&#x4E86;&#x4E00;&#x4E0B;&#x627E;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5F53;&#x65F6;&#x7531;&#x4E8E;&#x592A;&#x7D27;&#x5F20;&#x5199;&#x7684;&#x4E0D;&#x592A;&#x597D;&#x3002;&#x5F53;&#x65F6;&#x7684;&#x95EE;&#x9898;&#x65B9;&#x6CD5;&#x4E5F;&#x7A0D;&#x5FAE;&#x6709;&#x70B9;&#x4E0D;&#x540C;&#xFF0C;<em>&#x5F53;&#x65F6;&#x8981;&#x6C42;&#x7684;&#x662F;&#x627E;&#x5230;&#x76F8;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x4E0D;&#x662F;index</em>&#x3002; &#x5148;&#x56DE;&#x987E;&#x4E00;&#x4E0B;&#x5F53;&#x65F6;&#x7684;&#x7B97;&#x6CD5;&#xFF1A;</p>
+</code></pre><p>&#x8FD9;&#x4E5F;&#x662F;&#x6211;&#x7B2C;&#x4E00;&#x6B21;&#x9762;&#x8BD5;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;&#xFF0C;&#x5F53;&#x65F6;&#x60F3;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x6700;&#x66B4;&#x529B;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x4E24;&#x4E2A;&#x5FAA;&#x73AF;&#x5B8C;&#x4E8B;&#xFF0C;&#x4F46;&#x662F;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;$O(n^{2})$&#xFF0C;&#x90A3;&#x662F;&#x76F8;&#x5F53;&#x7684;&#x9AD8;o(&#x2565;&#xFE4F;&#x2565;)o&#x3002;&#x540E;&#x6765;&#x60F3;&#x4E86;&#x4E00;&#x4E0B;&#x627E;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5F53;&#x65F6;&#x7531;&#x4E8E;&#x592A;&#x7D27;&#x5F20;&#x5199;&#x7684;&#x4E0D;&#x592A;&#x597D;&#x3002;&#x5F53;&#x65F6;&#x7684;&#x95EE;&#x9898;&#x65B9;&#x6CD5;&#x4E5F;&#x7A0D;&#x5FAE;&#x6709;&#x70B9;&#x4E0D;&#x540C;&#xFF0C;<em>&#x5F53;&#x65F6;&#x8981;&#x6C42;&#x7684;&#x662F;&#x627E;&#x5230;&#x76F8;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x4E0D;&#x662F;index</em>&#x3002; &#x5148;&#x56DE;&#x987E;&#x4E00;&#x4E0B;&#x5F53;&#x65F6;&#x7684;&#x7B97;&#x6CD5;&#xFF1A;</p>
 <pre><code class="lang-java"><span class="hljs-keyword">int</span>[] another(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> target) {
     <span class="hljs-keyword">int</span> head = <span class="hljs-number">0</span>;
     <span class="hljs-keyword">int</span> tail = <span class="hljs-number">0</span>;
@@ -1207,7 +1211,7 @@ return [0, 1].
 <li>&#x7B2C;7-11&#x884C;&#xFF0C;&#x662F;&#x6765;&#x5224;&#x65AD;&#x8FD9;&#x4E2A;HashMap&#x662F;&#x5426;&#x5305;&#x542B;&#x8FD9;&#x4E2A;num&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;num&#x4E0D;&#x5305;&#x542B;&#x5728;HashMap&#x91CC;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x8BE5;num&#x5B58;&#x5230;HashMap&#x91CC;&#x9762;&#xFF0C;num&#x5F53;&#x505A;key&#xFF0C;index&#x5F53;&#x505A;value&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x628A;&#x8BBF;&#x95EE;&#x8FC7;&#x7684;num&#x548C;num&#x7684;index&#x5B58;&#x5230;HashMap&#x91CC;&#x9762;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x904D;&#x5386;nums&#x7684;&#x65F6;&#x5019;&#x5F97;&#x5BF9;&#x6BCF;&#x4E2A;&#x6570;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x5DEE;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x5224;&#x65AD;&#x8FD9;&#x4E2A;&#x5DEE;&#x503C;&#x662F;&#x5426;&#x5B58;&#x5728;HashMap&#x91CC;&#x9762;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x5C31;&#x4EE3;&#x8868;&#x5F97;&#x5230;&#x8FD9;&#x4E2A;&#x7ED3;&#x679C;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5B58;&#x5728;&#x5C31;&#x628A;&#x8FD9;&#x4E2A;<code>nums[i]</code>&#x5B58;&#x5230;HashMap&#x3002;</li>
 </ol>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">File Modify: 
-2024-11-25 16:17:26
+2024-11-25 22:13:10
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1252,7 +1256,7 @@ return [0, 1].
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1. Two Sum","level":"1.2","depth":1,"next":{"title":"2. Add Two Numbers","level":"1.3","depth":1,"path":"codes/2/README.md","ref":"codes/2/README.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table","livereload"],"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"codes/1/README.md","mtime":"2024-11-25T05:17:26.192Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-25T05:18:33.162Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1. Two Sum","level":"1.2","depth":1,"next":{"title":"2. Add Two Numbers","level":"1.3","depth":1,"path":"codes/2/README.md","ref":"codes/2/README.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Charles Li","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Leetcode FAQ","language":"zh-hans","gitbook":"*","description":"Leetcode notes"},"file":{"path":"codes/1/README.md","mtime":"2024-11-25T11:13:10.136Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-25T11:13:37.183Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
