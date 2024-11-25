@@ -1,4 +1,8 @@
 {
+    "title": "Leetcode FAQ",
+    "author": "Charles Li",
+    "description": "Leetcode notes",
+    "language": "zh-hans",
     "plugins": [
         "back-to-top-button",
         "chapter-fold",
@@ -15,7 +19,8 @@
         "hide-element",
         "copy-code-button",
         "alerts",
-        "auto-scroll-table"
+        "auto-scroll-table",
+        "katex"
     ],
     "pluginsConfig": {
         "hide-element": {
