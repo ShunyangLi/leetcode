@@ -32,6 +32,7 @@
 * [61. Rotate List](codes/61/README.md)
 * [66. Plus One](codes/66/README.md)
 * [70. Climbing Stairs](codes/70/README.md)
+* [80. Remove Duplicates from Sorted Array II](codes/80/README.md)
 * [82. Remove Duplicates from Sorted List II](codes/82/README.md)
 * [83. Remove Duplicates from Sorted List](codes/83/README.md)
 * [88. Merge Sorted Array](codes/88/README.md)
