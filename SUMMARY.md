@@ -1,6 +1,9 @@
 # Summary
 
 * [Union Find](codes/uf/README.md)
+    * [684. Redundant Connection](codes/uf/648.md)
+    * [785. Is Graph Bipartite?](codes/uf/785.md)
+    * [990. Satisfiability of Equality Equations](codes/uf/990.md)
 * [1. Two Sum](codes/1/README.md)
 * [2. Add Two Numbers](codes/2/README.md)
 * [3. Longest Substring Without Repeating Characters](codes/3/README.md)

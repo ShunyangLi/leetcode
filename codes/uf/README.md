@@ -19,17 +19,17 @@
 
 ```c++
 class UnionFind {
-   private:
+private:
     vector<int> root;
     int cnt;
 
-   public:
+public:
     explicit UnionFind(int n) {
         for (int i = 0; i < n; i++) root.push_back(i);
         cnt = n;
     }
 
-    auto union_(int x, int y) -> void {
+    void union_(int x, int y) {
         int root_x = find(x);
         int root_y = find(y);
 
@@ -39,7 +39,7 @@ class UnionFind {
         }
     }
 
-    auto find(int x) -> int {
+    int find(int x) {
         while (root[x] != x) {
             x = root[x];
         }
@@ -47,9 +47,9 @@ class UnionFind {
         return x;
     }
 
-    auto is_connected(int x, int y) -> bool { return find(x) == find(y); }
+    bool is_connected(int x, int y) { return find(x) == find(y); }
 
-    [[nodiscard]] auto get_cnt() const -> int { return cnt; }
+    int get_cnt() const { return cnt; }
 };
 ```
 
@@ -68,17 +68,17 @@ class UnionFind {
 
 ```c++
 class UnionFind {
-   private:
+private:
     vector<int> root;
     int cnt;
 
-   public:
+public:
     explicit UnionFind(int n) {
         for (int i = 0; i < n; i++) root.push_back(i);
         cnt = n;
     }
 
-    auto union_(int x, int y) -> void {
+    void union_(int x, int y) {
         int root_x = find(x);
         int root_y = find(y);
 
@@ -88,15 +88,15 @@ class UnionFind {
         }
     }
 
-    auto find(int x) -> int {
+    int find(int x) {
         if (root[x] != x) root[x] = find(root[x]);
 
         return root[x];
     }
 
-    auto is_connected(int x, int y) -> bool { return find(x) == find(y); }
+    bool is_connected(int x, int y) { return find(x) == find(y); }
 
-    [[nodiscard]] auto get_cnt() const -> int { return cnt; }
+    int get_cnt() const { return cnt; }
 };
 ```
 
