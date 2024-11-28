@@ -1,5 +1,6 @@
 # Summary
 
+* [Union Find](codes/uf/README.md)
 * [1. Two Sum](codes/1/README.md)
 * [2. Add Two Numbers](codes/2/README.md)
 * [3. Longest Substring Without Repeating Characters](codes/3/README.md)
@@ -59,6 +60,7 @@
 * [216. Combination Sum III](codes/216/README.md)
 * [217. Contains Duplicate](codes/217/README.md)
 * [219. Contains Duplicate II](codes/219/README.md)
+* [232. Implement Queue using Stacks](codes/232/README.md)
 * [234. Palindrome Linked List](codes/234/README.md)
 * [238. Product of Array Except Self](codes/238/README.md)
 * [242. Valid Anagram](codes/242/README.md)
