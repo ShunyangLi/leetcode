@@ -82,5 +82,6 @@
 * [645. Set Mismatch](codes/645/README.md)
 * [704. Binary Search](codes/704/README.md)
 * [739. Daily Temperatures](codes/739/README.md)
+* [804. Unique Morse Code Words](codes/804/README.md)
 * [1019. Next Greater Node In Linked List](codes/1019/README.md)
 * [1365. How Many Numbers Are Smaller Than the Current Number](codes/1365/README.md)
