@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>219. Contains Duplicate II · Leetcode FAQ</title>
+        <title>205. Isomorphic Strings · Leetcode FAQ</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -93,10 +93,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../232/" />
+    <link rel="next" href="../206/" />
     
     
-    <link rel="prev" href="../217/" />
+    <link rel="prev" href="../202/" />
     
 
     </head>
@@ -898,9 +898,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.57" data-path="../205/">
+        <li class="chapter active" data-level="1.57" data-path="./">
             
-                <a href="../205/">
+                <a href="./">
             
                     
                     205. Isomorphic Strings
@@ -963,9 +963,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.62" data-path="./">
+        <li class="chapter " data-level="1.62" data-path="../219/">
             
-                <a href="./">
+                <a href="../219/">
             
                     
                     219. Contains Duplicate II
@@ -1266,7 +1266,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >219. Contains Duplicate II</a>
+        <a href="../.." >205. Isomorphic Strings</a>
     </h1>
 </div>
 
@@ -1281,47 +1281,63 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="219-contains-duplicate-ii">219. Contains Duplicate II</h1>
-<p>Given an array of integers and an integer <em>k</em>, find out whether there are two distinct indices <em>i</em> and <em>j</em> in the array such that <strong>nums[i] = nums[j]</strong> and the <strong>absolute</strong> difference between <em>i</em> and <em>j</em> is at most <em>k</em>.</p>
+                                <h1 id="205-isomorphic-strings">205. Isomorphic Strings</h1>
+<p>Given two strings <code>s</code> and <code>t</code>, <em>determine if they are isomorphic</em>.</p>
+<p>Two strings <code>s</code> and <code>t</code> are isomorphic if the characters in <code>s</code> can be replaced to get <code>t</code>.</p>
+<p>All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.</p>
 <p><strong>Example 1:</strong></p>
-<pre><code>Input: nums = [1,2,3,1], k = 3
-Output: true
-</code></pre><p><strong>Example 2:</strong></p>
-<pre><code>Input: nums = [1,0,1,1], k = 1
-Output: true
-</code></pre><p><strong>Example 3:</strong></p>
-<pre><code>Input: nums = [1,2,3,1,2,3], k = 2
-Output: false
-</code></pre><p>&#x672C;&#x6765;&#x60F3;&#x7684;&#x662F;&#x76F4;&#x63A5;&#x7528;for&#x5FAA;&#x73AF;&#xFF0C;&#x6839;&#x636E;&#x5F53;&#x524D;&#x6570;&#x5B57;&#x7136;&#x540E;&#x5411;&#x540E;&#x8D70;k&#x4F4D;&#xFF0C;&#x770B;k&#x4F4D;&#x4EE5;&#x5185;&#x6709;&#x6CA1;&#x6709;&#x548C;<code>nums[i]</code>&#x76F8;&#x540C;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x4F46;&#x662F;&#x8C8C;&#x4F3C;bug&#x6709;&#x70B9;&#x591A;&#xFF0C;&#x653E;&#x5F03;&#x4E86;&#x3002;&#x3002;&#x6539;&#x7528;HashMap&#x4E86;&#xFF0C;key&#x5B58;<code>nums[i]</code>&#xFF0C;value&#x5B58;&#x76F8;&#x5BF9;&#x5E94;&#x7684;index&#x3002;&#x5982;&#x679C;HashMap&#x5DF2;&#x7ECF;&#x6709;&#x8BE5;key&#x5219;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;HashMap&#x91CC;&#x9762;&#x5B58;&#x7684;index&#x548C;&#x5F53;&#x524D;i&#x7684;&#x5DEE;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;K&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E86;&#x3002;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.HashMap;
-<span class="hljs-keyword">import</span> java.util.Map;
+<p><strong>Input:</strong> s = &quot;egg&quot;, t = &quot;add&quot;</p>
+<p><strong>Output:</strong> true</p>
+<p><strong>Explanation:</strong></p>
+<p>The strings <code>s</code> and <code>t</code> can be made identical by:</p>
+<ul>
+<li>Mapping <code>&apos;e&apos;</code> to <code>&apos;a&apos;</code>.</li>
+<li>Mapping <code>&apos;g&apos;</code> to <code>&apos;d&apos;</code>.</li>
+</ul>
+<p><strong>Example 2:</strong></p>
+<p><strong>Input:</strong> s = &quot;foo&quot;, t = &quot;bar&quot;</p>
+<p><strong>Output:</strong> false</p>
+<p><strong>Explanation:</strong></p>
+<p>The strings <code>s</code> and <code>t</code> can not be made identical as <code>&apos;o&apos;</code> needs to be mapped to both <code>&apos;a&apos;</code> and <code>&apos;r&apos;</code>.</p>
+<p><strong>Example 3:</strong></p>
+<p><strong>Input:</strong> s = &quot;paper&quot;, t = &quot;title&quot;</p>
+<p><strong>Output:</strong> true</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 5 * 104</code></li>
+<li><code>t.length == s.length</code></li>
+<li><code>s</code> and <code>t</code> consist of any valid ascii character.</li>
+</ul>
+<h2 id="solution">Solution</h2>
+<p>&#x6CA1;&#x5565;&#x592A;&#x591A;&#x6280;&#x5DE7;&#xFF0C;&#x76F4;&#x63A5;<code>hashmap</code>&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isIsomorphic</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s, <span class="hljs-built_in">string</span> t)</span> </span>{
+        <span class="hljs-keyword">if</span> (s.size() != t.size()) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContainsDuplicateII</span> </span>{
-    <span class="hljs-comment">// &#x653E;&#x5F03;&#x4E86;&#x6211;&#x4F7F;&#x7528;hashmap&#x6765;&#x5199;&#x597D;&#x5427;&#x3002;&#x3002;&#x3002;</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">containsNearbyDuplicate</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> k)</span> </span>{
-        Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        <span class="hljs-keyword">auto</span> maps = <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">128</span>, <span class="hljs-number">-1</span>);
+        <span class="hljs-keyword">auto</span> maped = <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;(<span class="hljs-number">128</span>, <span class="hljs-number">0</span>);
 
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i ++) {
-            <span class="hljs-keyword">if</span> (map.containsKey(nums[i])) {
-                <span class="hljs-keyword">if</span> (i - map.get(nums[i]) &lt;= k) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.size(); i ++) {
+            <span class="hljs-keyword">int</span> s_ = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">int</span>&gt;(s[i]);
+            <span class="hljs-keyword">int</span> t_ = <span class="hljs-keyword">static_cast</span>&lt;<span class="hljs-keyword">int</span>&gt;(t[i]);
+
+            <span class="hljs-keyword">if</span> (maps[s_] == <span class="hljs-number">-1</span>) {
+                <span class="hljs-keyword">if</span> (maped[t_]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+
+                maps[s_] = t_;
+                maped[t_] = <span class="hljs-number">1</span>;
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">if</span> (maps[s_] != t_) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
             }
-
-            map.put(nums[i], i);
         }
 
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
     }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        ContainsDuplicateII c = <span class="hljs-keyword">new</span> ContainsDuplicateII();
-        <span class="hljs-keyword">int</span>[] nums = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[] {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>};
-
-        System.out.println(c.containsNearbyDuplicate(nums, <span class="hljs-number">2</span>));
-    }
-}
+};
 </code></pre>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">File Modify: 
-2024-11-28 21:26:51
+2024-11-30 22:42:12
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1350,12 +1366,12 @@ Output: false
 
             
                 
-                <a href="../217/" class="navigation navigation-prev " aria-label="Previous page: 217. Contains Duplicate">
+                <a href="../202/" class="navigation navigation-prev " aria-label="Previous page: 202. Happy Number">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../232/" class="navigation navigation-next " aria-label="Next page: 232. Implement Queue using Stacks">
+                <a href="../206/" class="navigation navigation-next " aria-label="Next page: 206. Reverse Linked List">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1366,7 +1382,7 @@ Output: false
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"219. Contains Duplicate II","level":"1.62","depth":1,"next":{"title":"232. Implement Queue using Stacks","level":"1.63","depth":1,"path":"codes/232/README.md","ref":"codes/232/README.md","articles":[]},"previous":{"title":"217. Contains Duplicate","level":"1.61","depth":1,"path":"codes/217/README.md","ref":"codes/217/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Charles Li","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Leetcode FAQ","language":"zh-hans","gitbook":"*","description":"Leetcode notes"},"file":{"path":"codes/219/README.md","mtime":"2024-11-28T10:26:51.287Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-30T11:44:04.705Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"205. Isomorphic Strings","level":"1.57","depth":1,"next":{"title":"206. Reverse Linked List","level":"1.58","depth":1,"path":"codes/206/README.md","ref":"codes/206/README.md","articles":[]},"previous":{"title":"202. Happy Number","level":"1.56","depth":1,"path":"codes/202/README.md","ref":"codes/202/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Charles Li","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Leetcode FAQ","language":"zh-hans","gitbook":"*","description":"Leetcode notes"},"file":{"path":"codes/205/README.md","mtime":"2024-11-30T11:42:12.063Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-30T11:44:04.705Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

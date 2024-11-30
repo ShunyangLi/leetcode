@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>219. Contains Duplicate II · Leetcode FAQ</title>
+        <title>380. Insert Delete GetRandom O(1) · Leetcode FAQ</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -93,10 +93,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../232/" />
+    <link rel="next" href="../387/" />
     
     
-    <link rel="prev" href="../217/" />
+    <link rel="prev" href="../350/" />
     
 
     </head>
@@ -963,9 +963,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.62" data-path="./">
+        <li class="chapter " data-level="1.62" data-path="../219/">
             
-                <a href="./">
+                <a href="../219/">
             
                     
                     219. Contains Duplicate II
@@ -1106,9 +1106,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.73" data-path="../380/">
+        <li class="chapter active" data-level="1.73" data-path="./">
             
-                <a href="../380/">
+                <a href="./">
             
                     
                     380. Insert Delete GetRandom O(1)
@@ -1266,7 +1266,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >219. Contains Duplicate II</a>
+        <a href="../.." >380. Insert Delete GetRandom O(1)</a>
     </h1>
 </div>
 
@@ -1281,47 +1281,80 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="219-contains-duplicate-ii">219. Contains Duplicate II</h1>
-<p>Given an array of integers and an integer <em>k</em>, find out whether there are two distinct indices <em>i</em> and <em>j</em> in the array such that <strong>nums[i] = nums[j]</strong> and the <strong>absolute</strong> difference between <em>i</em> and <em>j</em> is at most <em>k</em>.</p>
+                                <h1 id="380-insert-delete-getrandom-o1">380. Insert Delete GetRandom O(1)</h1>
+<p>Implement the <code>RandomizedSet</code> class:</p>
+<ul>
+<li><code>RandomizedSet()</code> Initializes the <code>RandomizedSet</code> object.</li>
+<li><code>bool insert(int val)</code> Inserts an item <code>val</code> into the set if not present. Returns <code>true</code> if the item was not present, <code>false</code> otherwise.</li>
+<li><code>bool remove(int val)</code> Removes an item <code>val</code> from the set if present. Returns <code>true</code> if the item was present, <code>false</code> otherwise.</li>
+<li><code>int getRandom()</code> Returns a random element from the current set of elements (it&apos;s guaranteed that at least one element exists when this method is called). Each element must have the <strong>same probability</strong> of being returned.</li>
+</ul>
+<p>You must implement the functions of the class such that each function works in <strong>average</strong> <code>O(1)</code> time complexity.</p>
 <p><strong>Example 1:</strong></p>
-<pre><code>Input: nums = [1,2,3,1], k = 3
-Output: true
-</code></pre><p><strong>Example 2:</strong></p>
-<pre><code>Input: nums = [1,0,1,1], k = 1
-Output: true
-</code></pre><p><strong>Example 3:</strong></p>
-<pre><code>Input: nums = [1,2,3,1,2,3], k = 2
-Output: false
-</code></pre><p>&#x672C;&#x6765;&#x60F3;&#x7684;&#x662F;&#x76F4;&#x63A5;&#x7528;for&#x5FAA;&#x73AF;&#xFF0C;&#x6839;&#x636E;&#x5F53;&#x524D;&#x6570;&#x5B57;&#x7136;&#x540E;&#x5411;&#x540E;&#x8D70;k&#x4F4D;&#xFF0C;&#x770B;k&#x4F4D;&#x4EE5;&#x5185;&#x6709;&#x6CA1;&#x6709;&#x548C;<code>nums[i]</code>&#x76F8;&#x540C;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x4F46;&#x662F;&#x8C8C;&#x4F3C;bug&#x6709;&#x70B9;&#x591A;&#xFF0C;&#x653E;&#x5F03;&#x4E86;&#x3002;&#x3002;&#x6539;&#x7528;HashMap&#x4E86;&#xFF0C;key&#x5B58;<code>nums[i]</code>&#xFF0C;value&#x5B58;&#x76F8;&#x5BF9;&#x5E94;&#x7684;index&#x3002;&#x5982;&#x679C;HashMap&#x5DF2;&#x7ECF;&#x6709;&#x8BE5;key&#x5219;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;HashMap&#x91CC;&#x9762;&#x5B58;&#x7684;index&#x548C;&#x5F53;&#x524D;i&#x7684;&#x5DEE;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;K&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E86;&#x3002;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.HashMap;
-<span class="hljs-keyword">import</span> java.util.Map;
+<pre><code>Input
+[&quot;RandomizedSet&quot;, &quot;insert&quot;, &quot;remove&quot;, &quot;insert&quot;, &quot;getRandom&quot;, &quot;remove&quot;, &quot;insert&quot;, &quot;getRandom&quot;]
+[[], [1], [2], [2], [], [1], [2], []]
+Output
+[null, true, false, true, 2, true, false, 2]
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContainsDuplicateII</span> </span>{
-    <span class="hljs-comment">// &#x653E;&#x5F03;&#x4E86;&#x6211;&#x4F7F;&#x7528;hashmap&#x6765;&#x5199;&#x597D;&#x5427;&#x3002;&#x3002;&#x3002;</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">containsNearbyDuplicate</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> k)</span> </span>{
-        Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+Explanation
+RandomizedSet randomizedSet = new RandomizedSet();
+randomizedSet.insert(1); // Inserts 1 to the set. Returns true as 1 was inserted successfully.
+randomizedSet.remove(2); // Returns false as 2 does not exist in the set.
+randomizedSet.insert(2); // Inserts 2 to the set, returns true. Set now contains [1,2].
+randomizedSet.getRandom(); // getRandom() should return either 1 or 2 randomly.
+randomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contains [2].
+randomizedSet.insert(2); // 2 was already in the set, so return false.
+randomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom() will always return 2.
+</code></pre><p><strong>Constraints:</strong></p>
+<ul>
+<li><code>-231 &lt;= val &lt;= 231 - 1</code></li>
+<li>At most <code>2 * ``105</code> calls will be made to <code>insert</code>, <code>remove</code>, and <code>getRandom</code>.</li>
+<li>There will be <strong>at least one</strong> element in the data structure when <code>getRandom</code> is called.</li>
+</ul>
+<h2 id="solution">Solution</h2>
+<p>&#x901A;&#x8FC7;&#x4F7F;&#x7528;<code>hashmap</code>&#x548C;<code>vector</code>&#x6765;&#x5B9E;&#x73B0;&#xFF0C;hashmap&#x6765;&#x8BB0;&#x5F55;&#x6570;&#x5B57;&#x5728;vector&#x4E2D;index&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x5F53;&#x9700;&#x8981;remove&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x6700;&#x540E;&#x8BE5;&#x6570;&#x5B57;&#x653E;&#x5230;vector&#x7684;&#x672B;&#x5C3E;&#xFF0C;&#x7136;&#x540E;&#x5220;&#x9664;&#x6389;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#x5C31;&#x53EA;&#x9700;&#x8981;<code>O(1)</code>&#x7684;&#x590D;&#x6742;&#x5EA6;&#x3002;remove&#x7684;&#x65F6;&#x5019;&#x53EA;&#x9700;&#x8981;&#x66F4;&#x65B0;index&#x4F4D;&#x7F6E;&#x5C31;&#x884C;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> RandomizedSet {
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; maps;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec;
+    <span class="hljs-built_in">std</span>::mt19937 gen;
+<span class="hljs-keyword">public</span>:
+    RandomizedSet() : gen(<span class="hljs-built_in">std</span>::random_device{}()) {}
 
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.length; i ++) {
-            <span class="hljs-keyword">if</span> (map.containsKey(nums[i])) {
-                <span class="hljs-keyword">if</span> (i - map.get(nums[i]) &lt;= k) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-            }
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-keyword">int</span> val)</span> </span>{
+        <span class="hljs-keyword">if</span> (maps.count(val)) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
 
-            map.put(nums[i], i);
-        }
+        maps[val] = vec.size();
+        vec.push_back(val);
 
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
     }
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-        ContainsDuplicateII c = <span class="hljs-keyword">new</span> ContainsDuplicateII();
-        <span class="hljs-keyword">int</span>[] nums = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[] {<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>};
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">remove</span><span class="hljs-params">(<span class="hljs-keyword">int</span> val)</span> </span>{
+        <span class="hljs-keyword">auto</span> it = maps.find(val);
+        <span class="hljs-keyword">if</span> (it == maps.end()) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
 
-        System.out.println(c.containsNearbyDuplicate(nums, <span class="hljs-number">2</span>));
+        <span class="hljs-keyword">int</span> idx = it-&gt;second;
+        <span class="hljs-keyword">int</span> last = vec.back();
+
+        vec[idx] = last;
+        maps[last] = idx;
+
+        vec.pop_back();
+        maps.erase(it);
+
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
     }
-}
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getRandom</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-built_in">std</span>::uniform_int_distribution&lt;&gt; dis(<span class="hljs-number">0</span>, vec.size() - <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">return</span> vec[dis(gen)];
+    }
+};
 </code></pre>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">File Modify: 
-2024-11-28 21:26:51
+2024-11-29 20:46:37
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1350,12 +1383,12 @@ Output: false
 
             
                 
-                <a href="../217/" class="navigation navigation-prev " aria-label="Previous page: 217. Contains Duplicate">
+                <a href="../350/" class="navigation navigation-prev " aria-label="Previous page: 350. Intersection of Two Arrays II">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../232/" class="navigation navigation-next " aria-label="Next page: 232. Implement Queue using Stacks">
+                <a href="../387/" class="navigation navigation-next " aria-label="Next page: 387. First Unique Character in a String">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1366,7 +1399,7 @@ Output: false
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"219. Contains Duplicate II","level":"1.62","depth":1,"next":{"title":"232. Implement Queue using Stacks","level":"1.63","depth":1,"path":"codes/232/README.md","ref":"codes/232/README.md","articles":[]},"previous":{"title":"217. Contains Duplicate","level":"1.61","depth":1,"path":"codes/217/README.md","ref":"codes/217/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Charles Li","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Leetcode FAQ","language":"zh-hans","gitbook":"*","description":"Leetcode notes"},"file":{"path":"codes/219/README.md","mtime":"2024-11-28T10:26:51.287Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-30T11:44:04.705Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"380. Insert Delete GetRandom O(1)","level":"1.73","depth":1,"next":{"title":"387. First Unique Character in a String","level":"1.74","depth":1,"path":"codes/387/README.md","ref":"codes/387/README.md","articles":[]},"previous":{"title":"350. Intersection of Two Arrays II","level":"1.72","depth":1,"path":"codes/350/README.md","ref":"codes/350/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Charles Li","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Leetcode FAQ","language":"zh-hans","gitbook":"*","description":"Leetcode notes"},"file":{"path":"codes/380/README.md","mtime":"2024-11-29T09:46:37.170Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-30T11:44:04.705Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
