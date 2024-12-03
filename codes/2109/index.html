@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>144. Binary Tree Preorder Traversal · Leetcode FAQ</title>
+        <title>2109. Adding Spaces to a String · Leetcode FAQ</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -93,10 +93,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../155/" />
     
-    
-    <link rel="prev" href="../142/" />
+    <link rel="prev" href="../1455/" />
     
 
     </head>
@@ -820,9 +818,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.51" data-path="./">
+        <li class="chapter " data-level="1.51" data-path="../144/">
             
-                <a href="./">
+                <a href="../144/">
             
                     
                     144. Binary Tree Preorder Traversal
@@ -1275,9 +1273,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.86" data-path="../2109/">
+        <li class="chapter active" data-level="1.86" data-path="./">
             
-                <a href="../2109/">
+                <a href="./">
             
                     
                     2109. Adding Spaces to a String
@@ -1318,7 +1316,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >144. Binary Tree Preorder Traversal</a>
+        <a href="../.." >2109. Adding Spaces to a String</a>
     </h1>
 </div>
 
@@ -1333,42 +1331,61 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="144-binary-tree-preorder-traversal">144. Binary Tree Preorder Traversal</h1>
-<p>Given a binary tree, return the <em>preorder</em> traversal of its nodes&apos; values.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Input: [1,null,2,3]
-   1
-    \
-     2
-    /
-   3
+                                <h1 id="2109-adding-spaces-to-a-string">2109. Adding Spaces to a String</h1>
+<p>You are given a <strong>0-indexed</strong> string <code>s</code> and a <strong>0-indexed</strong> integer array <code>spaces</code> that describes the indices in the original string where spaces will be added. Each space should be inserted <strong>before</strong> the character at the given index.</p>
+<ul>
+<li>For example, given <code>s = &quot;EnjoyYourCoffee&quot;</code> and <code>spaces = [5, 9]</code>, we place spaces before <code>&apos;Y&apos;</code> and <code>&apos;C&apos;</code>, which are at indices <code>5</code> and <code>9</code> respectively. Thus, we obtain <code>&quot;Enjoy **Y**our **C**offee&quot;</code>.</li>
+</ul>
+<p>Return <em>the modified string <strong>after</strong> the spaces have been added.</em></p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: s = &quot;LeetcodeHelpsMeLearn&quot;, spaces = [8,13,15]
+Output: &quot;Leetcode Helps Me Learn&quot;
+Explanation: 
+The indices 8, 13, and 15 correspond to the underlined characters in &quot;LeetcodeHelpsMeLearn&quot;.
+We then place spaces before those characters.
+</code></pre><p><strong>Example 2:</strong></p>
+<pre><code>Input: s = &quot;icodeinpython&quot;, spaces = [1,5,7,9]
+Output: &quot;i code in py thon&quot;
+Explanation:
+The indices 1, 5, 7, and 9 correspond to the underlined characters in &quot;icodeinpython&quot;.
+We then place spaces before those characters.
+</code></pre><p><strong>Example 3:</strong></p>
+<pre><code>Input: s = &quot;spacing&quot;, spaces = [0,1,2,3,4,5,6]
+Output: &quot; s p a c i n g&quot;
+Explanation:
+We are also able to place spaces before the first character of the string.
+</code></pre><p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 3 * 105</code></li>
+<li><code>s</code> consists only of lowercase and uppercase English letters.</li>
+<li><code>1 &lt;= spaces.length &lt;= 3 * 105</code></li>
+<li><code>0 &lt;= spaces[i] &lt;= s.length - 1</code></li>
+<li>All the values of <code>spaces</code> are <strong>strictly increasing</strong>.</li>
+</ul>
+<h2 id="solution">Solution</h2>
+<p>&#x96BE;&#x5EA6;&#x4E0D;&#x5927;&#xFF0C;&#x7B80;&#x5355;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">addSpaces</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; spaces)</span> </span>{
+        <span class="hljs-built_in">string</span> result;
+        <span class="hljs-keyword">int</span> spaceIdx = <span class="hljs-number">0</span>, strIdx = <span class="hljs-number">0</span>;
 
-Output: [1,2,3]
-</code></pre><p><strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?</p>
-<p>&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x524D;&#x5E8F;&#x7684;&#x904D;&#x5386;&#xFF1A;&#x6839;&#x5DE6;&#x53F3;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.LinkedList;
-<span class="hljs-keyword">import</span> java.util.List;
+        <span class="hljs-keyword">while</span> (strIdx &lt; s.size()) {
+            <span class="hljs-keyword">if</span> (spaceIdx &lt; spaces.size() &amp;&amp; strIdx == spaces[spaceIdx]) {
+                result += <span class="hljs-string">&apos; &apos;</span>;
+                spaceIdx++;
+            }
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BinaryTreePreorderTraversal</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">preorderTraversal</span><span class="hljs-params">(TreeNode root)</span> </span>{
-        List&lt;Integer&gt; res = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();
+            result += s[strIdx];
+            strIdx++;
+        }
 
-        traversal(root, res);
-        <span class="hljs-keyword">return</span> res;
-
+        <span class="hljs-keyword">return</span> result;
     }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">traversal</span><span class="hljs-params">(TreeNode root, List&lt;Integer&gt; res)</span> </span>{
-        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span>;
-
-        res.add(root.val);
-        traversal(root.left, res);
-        traversal(root.right, res);
-    }
-}
+};
 </code></pre>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">File Modify: 
-2024-11-30 22:45:24
+2024-12-03 20:34:09
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1397,14 +1414,10 @@ Output: [1,2,3]
 
             
                 
-                <a href="../142/" class="navigation navigation-prev " aria-label="Previous page: 142. Linked List Cycle II">
+                <a href="../1455/" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../155/" class="navigation navigation-next " aria-label="Next page: 155. Min Stack">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -1413,7 +1426,7 @@ Output: [1,2,3]
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"144. Binary Tree Preorder Traversal","level":"1.51","depth":1,"next":{"title":"155. Min Stack","level":"1.52","depth":1,"path":"codes/155/README.md","ref":"codes/155/README.md","articles":[]},"previous":{"title":"142. Linked List Cycle II","level":"1.50","depth":1,"path":"codes/142/README.md","ref":"codes/142/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Charles Li","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Leetcode FAQ","language":"zh-hans","gitbook":"*","description":"Leetcode notes"},"file":{"path":"codes/144/README.md","mtime":"2024-11-30T11:45:24.963Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-03T09:39:47.988Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2109. Adding Spaces to a String","level":"1.86","depth":1,"previous":{"title":"1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence","level":"1.85","depth":1,"path":"codes/1455/README.md","ref":"codes/1455/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Charles Li","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Leetcode FAQ","language":"zh-hans","gitbook":"*","description":"Leetcode notes"},"file":{"path":"codes/2109/README.md","mtime":"2024-12-03T09:34:09.918Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-03T09:39:47.988Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>144. Binary Tree Preorder Traversal · Leetcode FAQ</title>
+        <title>134. Gas Station · Leetcode FAQ</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -93,10 +93,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../155/" />
+    <link rel="next" href="../136/" />
     
     
-    <link rel="prev" href="../142/" />
+    <link rel="prev" href="../127/" />
     
 
     </head>
@@ -768,9 +768,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.47" data-path="../134/">
+        <li class="chapter active" data-level="1.47" data-path="./">
             
-                <a href="../134/">
+                <a href="./">
             
                     
                     134. Gas Station
@@ -820,9 +820,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.51" data-path="./">
+        <li class="chapter " data-level="1.51" data-path="../144/">
             
-                <a href="./">
+                <a href="../144/">
             
                     
                     144. Binary Tree Preorder Traversal
@@ -1318,7 +1318,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >144. Binary Tree Preorder Traversal</a>
+        <a href="../.." >134. Gas Station</a>
     </h1>
 </div>
 
@@ -1333,42 +1333,118 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="144-binary-tree-preorder-traversal">144. Binary Tree Preorder Traversal</h1>
-<p>Given a binary tree, return the <em>preorder</em> traversal of its nodes&apos; values.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Input: [1,null,2,3]
-   1
-    \
-     2
-    /
-   3
+                                <h1 id="134-gas-station">134. Gas Station</h1>
+<p>There are <code>n</code> gas stations along a circular route, where the amount of gas at the <code>ith</code> station is <code>gas[i]</code>.</p>
+<p>You have a car with an unlimited gas tank and it costs <code>cost[i]</code> of gas to travel from the <code>ith</code> station to its next <code>(i + 1)th</code> station. You begin the journey with an empty tank at one of the gas stations.</p>
+<p>Given two integer arrays <code>gas</code> and <code>cost</code>, return <em>the starting gas station&apos;s index if you can travel around the circuit once in the clockwise direction, otherwise return</em> <code>-1</code>. If there exists a solution, it is <strong>guaranteed</strong> to be <strong>unique</strong>.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: gas = [1,2,3,4,5], cost = [3,4,5,1,2]
+Output: 3
+Explanation:
+Start at station 3 (index 3) and fill up with 4 unit of gas. Your tank = 0 + 4 = 4
+Travel to station 4. Your tank = 4 - 1 + 5 = 8
+Travel to station 0. Your tank = 8 - 2 + 1 = 7
+Travel to station 1. Your tank = 7 - 3 + 2 = 6
+Travel to station 2. Your tank = 6 - 4 + 3 = 5
+Travel to station 3. The cost is 5. Your gas is just enough to travel back to station 3.
+Therefore, return 3 as the starting index.
+</code></pre><p><strong>Example 2:</strong></p>
+<pre><code>Input: gas = [2,3,4], cost = [3,4,3]
+Output: -1
+Explanation:
+You can&apos;t start at station 0 or 1, as there is not enough gas to travel to the next station.
+Let&apos;s start at station 2 and fill up with 4 unit of gas. Your tank = 0 + 4 = 4
+Travel to station 0. Your tank = 4 - 3 + 2 = 3
+Travel to station 1. Your tank = 3 - 3 + 3 = 3
+You cannot travel back to station 2, as it requires 4 unit of gas but you only have 3.
+Therefore, you can&apos;t travel around the circuit once no matter where you start.
+</code></pre><p><strong>Constraints:</strong></p>
+<ul>
+<li><code>n == gas.length == cost.length</code></li>
+<li><code>1 &lt;= n &lt;= 105</code></li>
+<li><code>0 &lt;= gas[i], cost[i] &lt;= 104</code></li>
+</ul>
+<h2 id="solution">Solution</h2>
+<h3 id="baseline">Baseline</h3>
+<p>&#x4E00;&#x5F00;&#x59CB;&#x6CA1;&#x5F88;&#x6E05;&#x695A;&#x7684;&#x7406;&#x89E3;&#x9898;&#x610F;&#xFF0C;&#x9009;&#x4E86;&#x4E00;&#x4E2A;&#x6700;&#x590D;&#x6742;&#x7684;&#x89E3;&#x6CD5; O(n^2)&#x5427;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">canCompleteCircuit</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; gas, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; cost)</span> </span>{
+        <span class="hljs-keyword">if</span> (gas.size() != cost.size()) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
 
-Output: [1,2,3]
-</code></pre><p><strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?</p>
-<p>&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x524D;&#x5E8F;&#x7684;&#x904D;&#x5386;&#xFF1A;&#x6839;&#x5DE6;&#x53F3;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">import</span> java.util.LinkedList;
-<span class="hljs-keyword">import</span> java.util.List;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; gas.size(); i ++) {
+            <span class="hljs-keyword">int</span> ful = gas[i];
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BinaryTreePreorderTraversal</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">preorderTraversal</span><span class="hljs-params">(TreeNode root)</span> </span>{
-        List&lt;Integer&gt; res = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();
+            <span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>;
 
-        traversal(root, res);
-        <span class="hljs-keyword">return</span> res;
+            <span class="hljs-keyword">while</span> (j % gas.size() != i) {
+                ful -= cost[(j - <span class="hljs-number">1</span>) % gas.size()];
 
+                <span class="hljs-keyword">if</span> (ful &lt; <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;
+                ful += gas[j % gas.size()];
+
+                j++;
+            }
+
+            ful -= cost[(j - <span class="hljs-number">1</span>) % gas.size()];
+
+            <span class="hljs-keyword">if</span> (ful &gt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> i;
+        }
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
     }
+};
+</code></pre>
+<h3 id="greedy">Greedy</h3>
+<p><strong>&#x903B;&#x8F91;&#x6838;&#x5FC3;</strong>&#xFF1A;</p>
+<ul>
+<li>&#x548C; Python &#x5B9E;&#x73B0;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x53D8;&#x91CF; <code>total_tank</code> &#x548C; <code>curr_tank</code> &#x5206;&#x522B;&#x8BB0;&#x5F55;&#x603B;&#x5269;&#x4F59;&#x6CB9;&#x91CF;&#x548C;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#x7684;&#x5269;&#x4F59;&#x6CB9;&#x91CF;&#x3002;</li>
+<li>&#x5F53; <code>curr_tank</code> &#x5C0F;&#x4E8E; 0 &#x65F6;&#xFF0C;&#x8BF4;&#x660E;&#x4EE5;&#x5F53;&#x524D;&#x8D77;&#x59CB;&#x70B9;&#x65E0;&#x6CD5;&#x5B8C;&#x6210;&#x8DEF;&#x5F84;&#xFF0C;&#x5C06;&#x8D77;&#x59CB;&#x70B9;&#x66F4;&#x65B0;&#x4E3A;&#x4E0B;&#x4E00;&#x4E2A;&#x52A0;&#x6CB9;&#x7AD9;&#x3002;</li>
+</ul>
+<p><strong>&#x590D;&#x6742;&#x5EA6;&#x5206;&#x6790;</strong>&#xFF1A;</p>
+<ul>
+<li><strong>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;</strong>&#xFF1A;O(n)&#xFF0C;&#x53EA;&#x9700;&#x904D;&#x5386;&#x52A0;&#x6CB9;&#x7AD9;&#x4E00;&#x6B21;&#x3002;</li>
+<li><strong>&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;</strong>&#xFF1A;O(1)&#xFF0C;&#x53EA;&#x4F7F;&#x7528;&#x4E86;&#x5E38;&#x91CF;&#x7A7A;&#x95F4;&#x3002;</li>
+</ul>
+<p><strong>&#x51FD;&#x6570;&#x8C03;&#x7528;</strong>&#xFF1A;</p>
+<ul>
+<li>&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x5411;&#x91CF; <code>gas</code> &#x548C; <code>cost</code>&#xFF0C;&#x5206;&#x522B;&#x8868;&#x793A;&#x6BCF;&#x4E2A;&#x52A0;&#x6CB9;&#x7AD9;&#x7684;&#x6C7D;&#x6CB9;&#x91CF;&#x548C;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x52A0;&#x6CB9;&#x7AD9;&#x7684;&#x6D88;&#x8017;&#x91CF;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#xFF0C;&#x8868;&#x793A;&#x8D77;&#x59CB;&#x52A0;&#x6CB9;&#x7AD9;&#x7684;&#x7D22;&#x5F15;&#xFF1B;&#x82E5;&#x65E0;&#x89E3;&#x5219;&#x8FD4;&#x56DE; <code>-1</code>&#x3002;</li>
+</ul>
+<h3 id="&#x7406;&#x89E3;&#x9898;&#x76EE;&#x63D0;&#x793A;">&#x7406;&#x89E3;&#x9898;&#x76EE;&#x63D0;&#x793A;</h3>
+<p>&#x53EF;&#x80FD;&#x4EA7;&#x751F;&#x7591;&#x60D1;&#x7684;&#x5730;&#x65B9;&#x5728;&#x4E8E;&#x9898;&#x76EE;&#x63CF;&#x8FF0;&#x7684;&#x73AF;&#x5F62;&#x8DEF;&#x5F84;&#x6027;&#x8D28;&#xFF1A;</p>
+<ol>
+<li>&#x73AF;&#x5F62;&#x8DEF;&#x5F84;&#x610F;&#x5473;&#x7740;&#x4ECE;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x52A0;&#x6CB9;&#x7AD9;&#x7684;&#x6D88;&#x8017;&#x662F;&#x56DE;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x52A0;&#x6CB9;&#x7AD9;&#xFF0C;&#x8FD9;&#x79CD;&#x6027;&#x8D28;&#x53EF;&#x80FD;&#x8BA9;&#x4EBA;&#x8BEF;&#x4EE5;&#x4E3A;&#x9700;&#x8981;&#x7528; <code>cost[i-1]</code> &#x4E4B;&#x7C7B;&#x7684;&#x7D22;&#x5F15;&#x64CD;&#x4F5C;&#x3002;</li>
+<li>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;<code>gas[i] - cost[i]</code> &#x7684;&#x76F4;&#x63A5;&#x8BA1;&#x7B97;&#x5DF2;&#x7ECF;&#x6DB5;&#x76D6;&#x4E86;&#x52A0;&#x6CB9;&#x548C;&#x6D88;&#x8017;&#x7684;&#x672C;&#x8D28;&#xFF0C;&#x9898;&#x76EE;&#x6240;&#x8BF4;&#x7684;&#x73AF;&#x5F62;&#x53EA;&#x5F71;&#x54CD;&#x7D22;&#x5F15;&#x5728;&#x903B;&#x8F91;&#x4E0A;&#x662F;&#x5FAA;&#x73AF;&#x7684;&#x3002;</li>
+</ol>
+<h3 id="&#x91CD;&#x70B9;&#xFF1A;&#x73AF;&#x5F62;&#x8DEF;&#x5F84;&#x7684;&#x6838;&#x5FC3;">&#x91CD;&#x70B9;&#xFF1A;&#x73AF;&#x5F62;&#x8DEF;&#x5F84;&#x7684;&#x6838;&#x5FC3;</h3>
+<p>&#x73AF;&#x5F62;&#x8DEF;&#x5F84;&#x7684;&#x7279;&#x6027;&#x53EA;&#x662F;&#x52A0;&#x6CB9;&#x7AD9;&#x7F16;&#x53F7;&#x7684;&#x903B;&#x8F91;&#x5FAA;&#x73AF;&#xFF0C;&#x5B83;&#x5728;&#x7F16;&#x7A0B;&#x4E2D;&#x76F4;&#x63A5;&#x4F53;&#x73B0;&#x5728;&#x7D22;&#x5F15;&#x8FD0;&#x7B97;&#x7684;&#x8FB9;&#x754C;&#x5904;&#x7406;&#x4E0A;&#xFF1A;</p>
+<ul>
+<li><code>i = n - 1</code> &#x5230; <code>i = 0</code> &#x8FD9;&#x79CD;&#x8DF3;&#x8DC3;&#x662F;&#x5FAA;&#x73AF;&#x8DEF;&#x5F84;&#x7684;&#x4F53;&#x73B0;&#x3002;</li>
+<li>&#x6570;&#x7EC4;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x5B9E;&#x9645;&#x7684;&#x989D;&#x5916;&#x590D;&#x6742;&#x6027;&#xFF0C;&#x76F4;&#x63A5;&#x8BA1;&#x7B97;&#x5373;&#x53EF;&#x3002;</li>
+</ul>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">canCompleteCircuit</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; gas, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; cost)</span> </span>{
+        <span class="hljs-keyword">int</span> total_tank = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> curr_tank = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> start_station = <span class="hljs-number">0</span>;
 
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">traversal</span><span class="hljs-params">(TreeNode root, List&lt;Integer&gt; res)</span> </span>{
-        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; gas.size(); ++i) {
+            total_tank += gas[i] - cost[i];
+            curr_tank += gas[i] - cost[i];
 
-        res.add(root.val);
-        traversal(root.left, res);
-        traversal(root.right, res);
+            <span class="hljs-keyword">if</span> (curr_tank &lt; <span class="hljs-number">0</span>) {
+                start_station = i + <span class="hljs-number">1</span>;
+                curr_tank = <span class="hljs-number">0</span>;
+            }
+        }
+        <span class="hljs-keyword">return</span> total_tank &gt;= <span class="hljs-number">0</span> ? start_station : <span class="hljs-number">-1</span>;
     }
-}
+};
 </code></pre>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">File Modify: 
-2024-11-30 22:45:24
+2024-12-03 20:39:08
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1397,12 +1473,12 @@ Output: [1,2,3]
 
             
                 
-                <a href="../142/" class="navigation navigation-prev " aria-label="Previous page: 142. Linked List Cycle II">
+                <a href="../127/" class="navigation navigation-prev " aria-label="Previous page: 127. Word Ladder">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../155/" class="navigation navigation-next " aria-label="Next page: 155. Min Stack">
+                <a href="../136/" class="navigation navigation-next " aria-label="Next page: 136. Single Number">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1413,7 +1489,7 @@ Output: [1,2,3]
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"144. Binary Tree Preorder Traversal","level":"1.51","depth":1,"next":{"title":"155. Min Stack","level":"1.52","depth":1,"path":"codes/155/README.md","ref":"codes/155/README.md","articles":[]},"previous":{"title":"142. Linked List Cycle II","level":"1.50","depth":1,"path":"codes/142/README.md","ref":"codes/142/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Charles Li","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Leetcode FAQ","language":"zh-hans","gitbook":"*","description":"Leetcode notes"},"file":{"path":"codes/144/README.md","mtime":"2024-11-30T11:45:24.963Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-03T09:39:47.988Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"134. Gas Station","level":"1.47","depth":1,"next":{"title":"136. Single Number","level":"1.48","depth":1,"path":"codes/136/README.md","ref":"codes/136/README.md","articles":[]},"previous":{"title":"127. Word Ladder","level":"1.46","depth":1,"path":"codes/127/README.md","ref":"codes/127/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Charles Li","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Leetcode FAQ","language":"zh-hans","gitbook":"*","description":"Leetcode notes"},"file":{"path":"codes/134/README.md","mtime":"2024-12-03T09:39:08.028Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-03T09:39:47.988Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
