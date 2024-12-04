@@ -32,6 +32,7 @@
 * [49. Group Anagrams](codes/49/README.md)
 * [50. Pow(x, n)](codes/50/README.md)
 * [53. Maximum Subarray](codes/53/README.md)
+* [56. Merge Intervals](codes/56/README.md)
 * [58. Length of Last Word](codes/58/README.md)
 * [61. Rotate List](codes/61/README.md)
 * [66. Plus One](codes/66/README.md)
