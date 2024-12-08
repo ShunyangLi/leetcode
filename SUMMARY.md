@@ -89,6 +89,7 @@
 * [739. Daily Temperatures](codes/739/README.md)
 * [804. Unique Morse Code Words](codes/804/README.md)
 * [1019. Next Greater Node In Linked List](codes/1019/README.md)
+* [1282. Group the People Given the Group Size They Belong To](codes/1282/README.md)
 * [1365. How Many Numbers Are Smaller Than the Current Number](codes/1365/README.md)
 * [1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence](codes/1455/README.md)
 * [2109. Adding Spaces to a String](codes/2109/README.md)
