@@ -92,4 +92,6 @@
 * [1282. Group the People Given the Group Size They Belong To](codes/1282/README.md)
 * [1365. How Many Numbers Are Smaller Than the Current Number](codes/1365/README.md)
 * [1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence](codes/1455/README.md)
+* [1646. Get Maximum in Generated Array](codes/1646/README.md)
 * [2109. Adding Spaces to a String](codes/2109/README.md)
+* [3152. Special Array II](codes/3152/README.md)
