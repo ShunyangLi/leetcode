@@ -39,6 +39,7 @@
 * [61. Rotate List](codes/61/README.md)
 * [66. Plus One](codes/66/README.md)
 * [70. Climbing Stairs](codes/70/README.md)
+* [75. Sort Colors](codes/75/README.md)
 * [80. Remove Duplicates from Sorted Array II](codes/80/README.md)
 * [82. Remove Duplicates from Sorted List II](codes/82/README.md)
 * [83. Remove Duplicates from Sorted List](codes/83/README.md)
@@ -94,4 +95,5 @@
 * [1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence](codes/1455/README.md)
 * [1646. Get Maximum in Generated Array](codes/1646/README.md)
 * [2109. Adding Spaces to a String](codes/2109/README.md)
+* [2593. Find Score of an Array After Marking All Elements](codes/2593/README.md)
 * [3152. Special Array II](codes/3152/README.md)
