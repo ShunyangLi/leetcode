@@ -56,6 +56,7 @@
 * [136. Single Number](codes/136/README.md)
 * [141. Linked List Cycle](codes/141/README.md)
 * [142. Linked List Cycle II](codes/142/README.md)
+* [143. Reorder List](codes/143/README.md)
 * [144. Binary Tree Preorder Traversal](codes/144/README.md)
 * [146. LRU Cache](codes/146/README.md)
 * [155. Min Stack](codes/155/README.md)
