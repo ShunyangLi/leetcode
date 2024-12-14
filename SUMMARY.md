@@ -76,6 +76,7 @@
 * [268. Missing Number](codes/268/README.md)
 * [283. Move Zeroes](codes/283/README.md)
 * [287. Find the Duplicate Number](codes/287/README.md)
+* [303. Range Sum Query - Immutable](codes/303/README.md)
 * [344. Reverse String](codes/344/README.md)
 * [347. Top K Frequent Elements](codes/347/README.md)
 * [350. Intersection of Two Arrays II](codes/350/README.md)
@@ -94,4 +95,5 @@
 * [1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence](codes/1455/README.md)
 * [1646. Get Maximum in Generated Array](codes/1646/README.md)
 * [2109. Adding Spaces to a String](codes/2109/README.md)
+* [2396. Strictly Palindromic Number](codes/2396/README.md)
 * [3152. Special Array II](codes/3152/README.md)
