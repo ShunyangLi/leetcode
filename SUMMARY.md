@@ -73,6 +73,7 @@
 * [219. Contains Duplicate II](codes/219/README.md)
 * [224. Basic Calculator](codes/224/README.md)
 * [227. Basic Calculator II](codes/227/README.md)
+* [229. Majority Element II](codes/229/README.md)
 * [232. Implement Queue using Stacks](codes/232/README.md)
 * [234. Palindrome Linked List](codes/234/README.md)
 * [238. Product of Array Except Self](codes/238/README.md)
