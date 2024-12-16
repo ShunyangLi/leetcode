@@ -48,6 +48,7 @@
 * [80. Remove Duplicates from Sorted Array II](codes/80/README.md)
 * [82. Remove Duplicates from Sorted List II](codes/82/README.md)
 * [83. Remove Duplicates from Sorted List](codes/83/README.md)
+* [86. Partition List](codes/86/README.md)
 * [88. Merge Sorted Array](codes/88/README.md)
 * [92. Reverse Linked List II](codes/92/README.md)
 * [100. Same Tree](codes/100/README.md)
