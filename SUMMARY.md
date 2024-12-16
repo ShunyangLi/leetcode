@@ -23,6 +23,7 @@
 * [22. Generate Parentheses](codes/22/README.md)
 * [23. Merge k Sorted Lists](codes/23/README.md)
 * [24. Swap Nodes in Pairs](codes/24/README.md)
+* [25. Reverse Nodes in k-Group](codes/25/README.md)
 * [26. Remove Duplicates from Sorted Array](codes/26/README.md)
 * [27. Remove Element](codes/27/README.md)
 * [28. Implement strStr()](codes/28/README.md)
