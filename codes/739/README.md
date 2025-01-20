@@ -103,3 +103,31 @@ public:
     }
 };
 ```
+
+
+每次都有不同的想法，但是思路和代码越来越简单高效，还是用`stack`
+
+```c++
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int>& temperatures) {
+        stack<int> stack;
+        auto res = vector<int>(temperatures.size(), 0);
+
+        for (int i = 0; i < temperatures.size(); i ++) {
+            
+            while (!stack.empty() && temperatures[stack.top()] < temperatures[i]) {
+                int idx = stack.top();
+
+                res[idx] = i - idx;
+
+                stack.pop();
+            }
+
+            stack.emplace(i);
+        }
+
+        return res;
+    }
+};
+```
