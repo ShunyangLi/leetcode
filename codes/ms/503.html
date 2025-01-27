@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>19. Remove Nth Node From End of List · Leetcode FAQ</title>
+        <title>503. Next Greater Element II · Leetcode FAQ</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -93,10 +93,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../20/" />
+    <link rel="next" href="739.html" />
     
     
-    <link rel="prev" href="../18/" />
+    <link rel="prev" href="402.html" />
     
 
     </head>
@@ -267,9 +267,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../ms/">
+        <li class="chapter " data-level="1.4" data-path="./">
             
-                <a href="../ms/">
+                <a href="./">
             
                     
                     Monotonic stack
@@ -281,9 +281,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../ms/128.html">
+        <li class="chapter " data-level="1.4.1" data-path="128.html">
             
-                <a href="../ms/128.html">
+                <a href="128.html">
             
                     
                     128. Longest Consecutive Sequence
@@ -294,9 +294,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../ms/316.html">
+        <li class="chapter " data-level="1.4.2" data-path="316.html">
             
-                <a href="../ms/316.html">
+                <a href="316.html">
             
                     
                     316. Remove Duplicate Letters
@@ -307,9 +307,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../ms/402.html">
+        <li class="chapter " data-level="1.4.3" data-path="402.html">
             
-                <a href="../ms/402.html">
+                <a href="402.html">
             
                     
                     402. Remove K Digits
@@ -320,9 +320,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../ms/503.html">
+        <li class="chapter active" data-level="1.4.4" data-path="503.html">
             
-                <a href="../ms/503.html">
+                <a href="503.html">
             
                     
                     503. Next Greater Element II
@@ -333,9 +333,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="../ms/739.html">
+        <li class="chapter " data-level="1.4.5" data-path="739.html">
             
-                <a href="../ms/739.html">
+                <a href="739.html">
             
                     
                     739. Daily Temperatures
@@ -520,9 +520,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.18" data-path="./">
+        <li class="chapter " data-level="1.18" data-path="../19/">
             
-                <a href="./">
+                <a href="../19/">
             
                     
                     19. Remove Nth Node From End of List
@@ -1850,7 +1850,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >19. Remove Nth Node From End of List</a>
+        <a href="../.." >503. Next Greater Element II</a>
     </h1>
 </div>
 
@@ -1865,53 +1865,49 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="remove-nth-node-from-end-of-list">Remove Nth Node From End of List</h1>
-<p><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/" target="_blank">Remove Nth Node From End of List</a></p>
-<p>Given a linked list, remove the <em>n</em>-th node from the end of list and return its head.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.
+                                <h1 id="503-next-greater-element-ii">503. Next Greater Element II</h1>
+<p>Given a circular integer array <code>nums</code> (i.e., the next element of <code>nums[nums.length - 1]</code> is <code>nums[0]</code>), return <em>the <strong>next greater number</strong> for every element in</em> <code>nums</code>.</p>
+<p>The <strong>next greater number</strong> of a number <code>x</code> is the first greater number to its traversing-order next in the array, which means you could search circularly to find its next greater number. If it doesn&apos;t exist, return <code>-1</code> for this number.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: nums = [1,2,1]
+Output: [2,-1,2]
+Explanation: The first 1&apos;s next greater number is 2;
+The number 2 can&apos;t find next greater number.
+The second 1&apos;s next greater number needs to search circularly, which is also 2.
+</code></pre><p><strong>Example 2:</strong></p>
+<pre><code>Input: nums = [1,2,3,4,3]
+Output: [2,3,4,-1,4]
+</code></pre><h2 id="solution">Solution</h2>
+<p>&#x8FD9;&#x4E2A;&#x9898;&#x548C;<a href="https://shunyangli.github.io/leetcode/codes/739/" target="_blank">739</a>&#x6BD4;&#x8F83;&#x7C7B;&#x4F3C;&#xFF0C;&#x90FD;&#x662F;&#x627E;&#x5230;&#x4E0B;&#x4E2A;&#x6BD4;&#x5F53;&#x524D;&#x6570;&#x5B57;&#x5927;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x5B83;&#x8FD9;&#x4E2A;&#x662F;&#x53EF;&#x4EE5;&#x5FAA;&#x73AF;&#x7684;&#x3002;&#x4F46;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x626B;&#x4E24;&#x904D;&#xFF0C;&#x4ECE;&#x524D;&#x5F80;&#x540E;&#x7684;&#x626B;&#xFF0C;&#x7B2C;&#x4E00;&#x904D;&#x662F;&#x4E3A;&#x4E86;&#x627E;&#x5230;&#x6BD4;&#x5F53;&#x524D;&#x6570;&#x5B57;&#x66F4;&#x5927;&#x7684;&#xFF0C;&#x7B2C;&#x4E8C;&#x904D;&#x662F;&#x4E3A;&#x4E86;&#x627E;&#x5230;&#x6700;&#x5927;&#x503C;&#x540E;&#x9762;&#x90A3;&#x4E9B;&#x6570;&#x5B57;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; nextGreaterElements(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums) {
+        <span class="hljs-built_in">stack</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-built_in">stack</span>;
+        <span class="hljs-keyword">auto</span> res = <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;(nums.size(), <span class="hljs-number">-1</span>);
 
-After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5.
-</code></pre><p><strong>Note:</strong></p>
-<p>Given <em>n</em> will always be valid.</p>
-<p><strong>Follow up:</strong></p>
-<p>Could you do this in one pass?</p>
-<p>&#x89E3;&#x6790;&#xFF1A;</p>
-<p>&#x9898;&#x610F;&#x5C31;&#x662F;&#x5220;&#x9664;&#x5012;&#x6570;&#x7B2C;N&#x7684;&#x8282;&#x70B9;&#x3002;&#x8FD9;&#x4E2A;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5FEB;&#x6162;&#x6307;&#x9488;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x89E3;&#x51B3;&#xFF0C;&#x5148;&#x8BA9;&#x5FEB;&#x7684;&#x6307;&#x9488;&#x79FB;&#x52A8;n&#x4E2A;node&#xFF0C;&#x7136;&#x540E;&#x6162;&#x7684;&#x6307;&#x9488;&#x5F00;&#x59CB;&#x79FB;&#x52A8;&#x3002;&#x8FD9;&#x6837;&#x5F53;&#x5FEB;&#x7684;&#x6307;&#x9488;&#x4E3A;null&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6162;&#x7684;&#x6307;&#x9488;&#x521A;&#x597D;&#x5C31;&#x662F;&#x8981;&#x5220;&#x9664;&#x7684;&#x8282;&#x70B9;&#x3002;</p>
-<p><img src="2.png" alt=""></p>
-<p>&#x5176;&#x5B9E;&#x53EF;&#x4EE5;&#x5F53;<code>fast.next == null</code>&#x7684;&#x65F6;&#x5019;&#x5C31;&#x505C;&#x6B62;&#x3002;&#x8FD9;&#x6837;<code>slow.next = slow.next.next</code>&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x7684;&#x4EE3;&#x7801;&#x7528;&#x4E86;<code>curr</code>&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x4E3A;null&#xFF08;&#x5220;&#x9664;&#x7684;&#x5143;&#x7D20;&#x662F;&#x4E0D;&#x662F;head&#xFF09;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ListNode</span> </span>{
-     <span class="hljs-keyword">int</span> val;
-     ListNode next;
-     ListNode() {}
-     ListNode(<span class="hljs-keyword">int</span> val) { <span class="hljs-keyword">this</span>.val = val; }
-     ListNode(<span class="hljs-keyword">int</span> val, ListNode next) { <span class="hljs-keyword">this</span>.val = val; <span class="hljs-keyword">this</span>.next = next; }
-}
+        <span class="hljs-keyword">int</span> n = nums.size();
 
-<span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">removeNthFromEnd</span><span class="hljs-params">(ListNode head, <span class="hljs-keyword">int</span> n)</span> </span>{
-    ListNode curr = <span class="hljs-keyword">null</span>;
-    ListNode slow = head;
-    ListNode fast = head;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n * <span class="hljs-number">2</span>; i ++) {
 
+            <span class="hljs-keyword">while</span> (!<span class="hljs-built_in">stack</span>.empty()) {
+                <span class="hljs-keyword">auto</span> it = <span class="hljs-built_in">stack</span>.top();
 
-    <span class="hljs-keyword">while</span> (fast != <span class="hljs-keyword">null</span>) {
-        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">0</span>) {
-            curr = slow;
-            slow = slow.next;
+                <span class="hljs-keyword">if</span> (it.first &gt;= nums[i % n]) <span class="hljs-keyword">break</span>;
+
+                res[it.second] = nums[i % n];
+
+                <span class="hljs-built_in">stack</span>.pop();
+            }
+
+            <span class="hljs-keyword">if</span> (i &lt; nums.size()) <span class="hljs-built_in">stack</span>.emplace(nums[i], i);
         }
-        fast = fast.next;
-        n --;
+
+        <span class="hljs-keyword">return</span> res;
     }
-
-    <span class="hljs-comment">// means at the head</span>
-    <span class="hljs-keyword">if</span>(curr == <span class="hljs-keyword">null</span>) head = head.next;
-    <span class="hljs-keyword">if</span> (curr != <span class="hljs-keyword">null</span>) curr.next = slow.next;
-
-    <span class="hljs-keyword">return</span> head;
-}
+};
 </code></pre>
 <footer class="page-footer"><span class="copyright">powered by Gitbook</span><span class="footer-modification">File Modify: 
-2025-01-20 19:14:37
+2025-01-27 22:32:45
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1940,12 +1936,12 @@ After removing the second node from the end, the linked list becomes 1-&gt;2-&gt
 
             
                 
-                <a href="../18/" class="navigation navigation-prev " aria-label="Previous page: 18. 4Sum">
+                <a href="402.html" class="navigation navigation-prev " aria-label="Previous page: 402. Remove K Digits">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../20/" class="navigation navigation-next " aria-label="Next page: 20. Valid Parentheses">
+                <a href="739.html" class="navigation navigation-next " aria-label="Next page: 739. Daily Temperatures">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1956,7 +1952,7 @@ After removing the second node from the end, the linked list becomes 1-&gt;2-&gt
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"19. Remove Nth Node From End of List","level":"1.18","depth":1,"next":{"title":"20. Valid Parentheses","level":"1.19","depth":1,"path":"codes/20/README.md","ref":"codes/20/README.md","articles":[]},"previous":{"title":"18. 4Sum","level":"1.17","depth":1,"path":"codes/18/README.md","ref":"codes/18/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Charles Li","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Leetcode FAQ","language":"zh-hans","gitbook":"*","description":"Leetcode notes"},"file":{"path":"codes/19/README.md","mtime":"2025-01-20T08:14:37.038Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-27T11:36:38.676Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"503. Next Greater Element II","level":"1.4.4","depth":2,"next":{"title":"739. Daily Temperatures","level":"1.4.5","depth":2,"path":"codes/ms/739.md","ref":"codes/ms/739.md","articles":[]},"previous":{"title":"402. Remove K Digits","level":"1.4.3","depth":2,"path":"codes/ms/402.md","ref":"codes/ms/402.md","articles":[]},"dir":"ltr"},"config":{"plugins":["back-to-top-button","chapter-fold","code","splitter","-lunr","-search","search-pro","pageview-count","tbfed-pagefooter","popup","-sharing","sharing-plus","hide-element","copy-code-button","alerts","auto-scroll-table","katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{},"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"code":{"copyButtons":false},"hide-element":{"elements":[".gitbook-link"]},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"pageview-count":{},"alerts":{},"copy-code-button":{},"sharing":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Charles Li","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Leetcode FAQ","language":"zh-hans","gitbook":"*","description":"Leetcode notes"},"file":{"path":"codes/ms/503.md","mtime":"2025-01-27T11:32:45.916Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-27T11:36:38.676Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
