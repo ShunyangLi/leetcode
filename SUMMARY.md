@@ -168,3 +168,4 @@
 * [2396. Strictly Palindromic Number](codes/2396/README.md)
 * [2418. Sort the People](codes/2418/README.md)
 * [3152. Special Array II](codes/3152/README.md)
+* [3160. Find the Number of Distinct Colors Among the Balls](codes/3160/README.md)
